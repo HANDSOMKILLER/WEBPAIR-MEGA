@@ -69,14 +69,23 @@ router.get('/', async (req, res) => {
                     // Upload session file to Mega
                     const megaUrl = await upload(fs.createReadStream(`${dirs}/creds.json`), `${generateRandomId()}.json`);
                     let stringSession = megaUrl.replace('https://mega.nz/file/', ''); // Extract session ID from URL
-                    stringSession = 'GlobalTechInfo~' + stringSession;  // Prepend your name to the session ID
+                    stringSession = 'killer~' + stringSession;  // Prepend your name to the session ID
 
                     // Send the session ID to the target number
                     const userJid = jidNormalizedUser(num + '@s.whatsapp.net');
                     await GlobalTechInc.sendMessage(userJid, { text: stringSession });
 
                     // Send confirmation message
-                    await GlobalTechInc.sendMessage(userJid, { text: 'Session ID sent successfully.' });
+                    await GlobalTechInc.sendMessage(userJid, { text: 'LOVE YOU FRIENDS! 👋 
+
+'DO NOT SHARE YOUR SESSION ID WITH ANYONE🔐'
+    
+
+'PUT THE ABOVE IN SESSION_ID VAR
+
+'THANKS FOR USING SILENT-KILLER-MD 
+  ' ☠︎︎🇸 🇰 .🅜︎🅓︎
+ 'JOIN SUPPORT CHANNEL:-https://whatsapp.com/channel/0029VarkVkoLikg1S62MEt42' });
 
                     // Clean up session after use
                     await delay(100);
